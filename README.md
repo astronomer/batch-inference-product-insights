@@ -29,25 +29,25 @@ Follow the steps below to set up the demo for yourself.
 2. Log into your AWS account and create [a new empty S3 bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-bucket.html). Make sure you have a set of [AWS credentials](https://docs.aws.amazon.com/iam/) with `AmazonS3FullAccess` for this new bucket.
 3. (Optional): Sign up for a [free trial](https://trial.snowflake.com/?owner=SPN-PID-365384) of Snowflake. Create a database called `product_insights_demo` with a schema called `dev` and a table called `zd_tickets`. If you do not want to use Snowflake, delete the `ingest_zendesk_tickets` DAG from the `dags` folder.
 
-    The table needs to contain at least the following columns: `ticket_id`, `subject`, `description`. You can use the following SQL to create the table:
-        
-    ```sql
-    create or replace TABLE PRODUCT_INSIGHTS_DEMO.DEV.ZD_TICKETS (
-        TICKET_ID NUMBER(38,0) NOT NULL COMMENT 'Zendesk ticket unique id. Primary key of the table.',
-        SUBJECT VARCHAR(512) COMMENT 'Subject of the ticket. Indicated by the ticket submitter.',
-        DESCRIPTION VARCHAR(65536) COMMENT 'Ticket description. Indicated by the ticket submitter.',
-    );
-    ``` 
+The table needs to contain at least the following columns: `ticket_id`, `subject`, `description`. You can use the following SQL to create the table:
+    
+```sql
+create or replace TABLE PRODUCT_INSIGHTS_DEMO.DEV.ZD_TICKETS (
+    TICKET_ID NUMBER(38,0) NOT NULL COMMENT 'Zendesk ticket unique id. Primary key of the table.',
+    SUBJECT VARCHAR(512) COMMENT 'Subject of the ticket. Indicated by the ticket submitter.',
+    DESCRIPTION VARCHAR(65536) COMMENT 'Ticket description. Indicated by the ticket submitter.',
+);
+``` 
 
-    And the following statement to populate it with mock data:
+And the following statement to populate it with mock data:
 
-    ```sql
-    insert into PRODUCT_INSIGHTS_DEMO.DEV.ZD_TICKETS (TICKET_ID, SUBJECT, DESCRIPTION)
-    values
-    (1, 'Issue with login', 'I cannot login from my phone'),
-    (2, 'Feedback', 'Thanks for resolving my problem so quickly! Also I love the new UI'),
-    (3, 'Feature request', 'I would like to be able to change my password from the mobile app')
-    ```
+```sql
+insert into PRODUCT_INSIGHTS_DEMO.DEV.ZD_TICKETS (TICKET_ID, SUBJECT, DESCRIPTION)
+values
+(1, 'Issue with login', 'I cannot login from my phone'),
+(2, 'Feedback', 'Thanks for resolving my problem so quickly! Also I love the new UI'),
+(3, 'Feature request', 'I would like to be able to change my password from the mobile app')
+```
 
 4. Fork this repository and clone the code locally.
 
