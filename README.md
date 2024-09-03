@@ -31,23 +31,23 @@ Follow the steps below to set up the demo for yourself.
 
     The table needs to contain at least the following columns: `ticket_id`, `subject`, `description`. You can use the following SQL to create the table:
         
-        ```sql
-        create or replace TABLE PRODUCT_INSIGHTS_DEMO.DEV.ZD_TICKETS (
-            TICKET_ID NUMBER(38,0) NOT NULL COMMENT 'Zendesk ticket unique id. Primary key of the table.',
-            SUBJECT VARCHAR(512) COMMENT 'Subject of the ticket. Indicated by the ticket submitter.',
-            DESCRIPTION VARCHAR(65536) COMMENT 'Ticket description. Indicated by the ticket submitter.',
-        );
-        ``` 
+    ```sql
+    create or replace TABLE PRODUCT_INSIGHTS_DEMO.DEV.ZD_TICKETS (
+        TICKET_ID NUMBER(38,0) NOT NULL COMMENT 'Zendesk ticket unique id. Primary key of the table.',
+        SUBJECT VARCHAR(512) COMMENT 'Subject of the ticket. Indicated by the ticket submitter.',
+        DESCRIPTION VARCHAR(65536) COMMENT 'Ticket description. Indicated by the ticket submitter.',
+    );
+    ``` 
 
     And the following statement to populate it with mock data:
 
-        ```sql
-        insert into PRODUCT_INSIGHTS_DEMO.DEV.ZD_TICKETS (TICKET_ID, SUBJECT, DESCRIPTION)
-        values
-        (1, 'Issue with login', 'I cannot login from my phone'),
-        (2, 'Feedback', 'Thanks for resolving my problem so quickly! Also I love the new UI'),
-        (3, 'Feature request', 'I would like to be able to change my password from the mobile app')
-        ```
+    ```sql
+    insert into PRODUCT_INSIGHTS_DEMO.DEV.ZD_TICKETS (TICKET_ID, SUBJECT, DESCRIPTION)
+    values
+    (1, 'Issue with login', 'I cannot login from my phone'),
+    (2, 'Feedback', 'Thanks for resolving my problem so quickly! Also I love the new UI'),
+    (3, 'Feature request', 'I would like to be able to change my password from the mobile app')
+    ```
 
 4. Fork this repository and clone the code locally.
 
